@@ -1,1 +1,25 @@
-
+steps:
+- name: 'ubuntu'
+  id: A
+  script: |
+    sleep 30
+    echo "Hello World"
+    
+- name: 'ubuntu'
+  id: B
+  waitfor:
+  - A
+  args: ['echo', 'a is successful']
+  
+- name: 'ubuntu'
+  id: C
+  waitFor: ['-']
+  args: ['echo', 'this is step c']
+  
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['docker', 'build', '--build-arg', 'NAME=${NAME}', 'us-central1-docker.pkg.dev/$PROJECT_ID/quickstart-docker-repo-pranav/quickstart-image:tag1', '.']
+  timeout: 60
+  env: ['NAME=hello-world']
+  
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['docker', 'run', 'us-central1-docker.pkg.dev/$PROJECT_ID/quickstart-docker-repo-pranav/quickstart-image:tag1']
