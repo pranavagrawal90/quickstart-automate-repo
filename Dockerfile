@@ -1,4 +1,4 @@
 FROM alpine
 ARG NAME
 ENV NAME=$NAME
-CMD ["echo", "$NAME"]
+CMD ["echo", "$(NAME)"]
