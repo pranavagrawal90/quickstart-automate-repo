@@ -1,18 +1,17 @@
 steps:
 - name: 'ubuntu'
-  id: A
+  id: 'A'
   script: |
     sleep 30
     echo "Hello World"
     
 - name: 'ubuntu'
-  id: B
-  waitFor:
-  - A
+  id: 'B'
+  waitFor: ['A']
   args: ['echo', 'a is successful']
   
 - name: 'ubuntu'
-  id: C
+  id: 'C'
   waitFor: ['-']
   args: ['echo', 'this is step c']
   
