@@ -7,7 +7,7 @@ steps:
     
 - name: 'ubuntu'
   id: B
-  waitfor:
+  waitFor:
   - A
   args: ['echo', 'a is successful']
   
