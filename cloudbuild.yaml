@@ -13,9 +13,9 @@ steps:
   waitFor: ['-']
   args: ['echo', 'this is step c']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/solution-kit-11/quickstart-docker-repo-pranav/quickstart-image:tag1', '.', '--build-args', 'NAME=${NAME}']
+  args: ['build', '-t', 'us-central1-docker.pkg.dev/solution-kit-11/quickstart-docker-repo-pranav/quickstart-image:tag1', '.', '--build-args', 'NAME=${_NAME}']
   timeout: 60s
 - name: 'gcr.io/cloud-builders/docker'
   args: ['run', 'us-central1-docker.pkg.dev/solution-kit-11/quickstart-docker-repo-pranav/quickstart-image:tag1']
 substitutions:
-    NAME: hello-world
+    _NAME: hello-world
