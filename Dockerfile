@@ -1,4 +1,4 @@
 FROM alpine
-# ARG NAME
-# ENV NAME=$NAME
-CMD ["echo", "hello-world"]
+ARG NAME
+ENV NAME=$NAME
+CMD ["echo", "$NAME"]
