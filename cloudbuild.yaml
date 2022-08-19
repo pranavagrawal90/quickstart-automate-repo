@@ -15,6 +15,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['docker', 'build', '--build-arg', 'NAME=${NAME}', 'us-central1-docker.pkg.dev/$PROJECT_ID/quickstart-docker-repo-pranav/quickstart-image:tag1', '.']
   timeout: 60s
-  env: ['NAME=hello-world']
+  substitutions:
+    NAME: 'hello-world'
 - name: 'gcr.io/cloud-builders/docker'
   args: ['docker', 'run', 'us-central1-docker.pkg.dev/$PROJECT_ID/quickstart-docker-repo-pranav/quickstart-image:tag1']
