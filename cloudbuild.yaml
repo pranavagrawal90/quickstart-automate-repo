@@ -13,7 +13,7 @@ steps:
   waitFor: ['-']
   args: ['echo', 'this is step c']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['docker', 'build', '--build-arg', 'NAME=${date}', 'us-central1-docker.pkg.dev/$PROJECT_ID/quickstart-docker-repo-pranav/quickstart-image:tag1', '.']
+  args: ['docker', 'build', 'us-central1-docker.pkg.dev/$PROJECT_ID/quickstart-docker-repo-pranav/quickstart-image:tag1', '.']
   timeout: 60s
 - name: 'gcr.io/cloud-builders/docker'
   args: ['docker', 'run', 'us-central1-docker.pkg.dev/$PROJECT_ID/quickstart-docker-repo-pranav/quickstart-image:tag1']
