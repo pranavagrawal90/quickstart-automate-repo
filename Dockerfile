@@ -1,5 +1,4 @@
 FROM alpine
 ARG NAME
-CMD vari='hello'
-CMD echo $vari
+ENV NAME=$NAME
 CMD echo $NAME
