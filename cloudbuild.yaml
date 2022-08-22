@@ -2,7 +2,7 @@ steps:
 - name: 'ubuntu'
   id: 'A'
   script: |
-    sleep 30
+    sleep 3
     echo "Hello World" 
 - name: 'ubuntu'
   id: 'B'
